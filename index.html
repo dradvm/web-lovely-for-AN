@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./heart.png">
+    <title>Web để nói lời iu cậu :3</title>
+</head>
+
+<body>
+    <audio src="./cheerup.mp4" autoplay>
+
+    </audio>
+    <div class="image_heading">
+    </div>
+    <div class="section_heading">
+        <div class="heading_text">Cậu thích tớ có phải hong nào :333</div>
+        <div class="heading_sub_text">Nếu cậu hong trả lời mà thoát tức là có á nha :v</div>
+    </div>
+    <div class="section_answer">
+        <button class="question_btn question_btn_no">Cậu mơ đi -.-</button>
+        <button class="question_btn question_btn_yes">Gất nà thích lun :33333 </button>
+    </div>
+    <div class="section_question open">
+        <div class="question">
+            <div class="question_image">
+                <img src="./045457cb890b54da8a256adcd2f3f0c2.jpg" alt="">
+            </div>
+            <div class="question_title">He luuuu cậu :3 </div>
+            <div class="question_text">Tớ có điều này muốn hỏi cậu áaaaaaa 😳</div>
+            <div class="question_text">Nên cậu trả lời thật lòng nhaaaa :></div>
+            <button class="question_btn question_btn_form">OK cậu iu</button>
+        </div>
+    </div>
+    <div class="section_question section_ask">
+        <div class="ask">
+            <div class="ask_image">
+                <img src="https://i.pinimg.com/originals/9d/0d/38/9d0d38c79b9fcf05f3ed71697039d27a.gif" alt="">
+            </div>
+            <div class="ask_title">
+                Vậy thì làm ny tớ hoiiii :33
+            </div>
+            <a href="https://www.facebook.com/profile.php?id=100008207387115"><button class="question_btn ask_yes">Đồng
+                    ý lun nò :>></button></a>
+            <a href="#"><button class="question_btn ask_no">Hoiiii!!</button></a>
+        </div>
+    </div>
+    <script>
+        var formQuestion = document.querySelector(".section_question")
+        var btnQuestion = document.querySelector(".question_btn_form")
+        var btnYes = document.querySelector(".question_btn_yes")
+        var btnNo = document.querySelector(".question_btn_no")
+        var heading = document.querySelector(".section_heading")
+        var answer = document.querySelector(".section_answer")
+        var askYes = document.querySelector(".ask_yes")
+        var askNo = document.querySelector(".ask_no")
+        var askQuestion = document.querySelector(".section_ask")
+        var askContainer = document.querySelector(".ask")
+        var height = screen.height / 2
+        var macthFunctionTabletMobile = window.matchMedia("(max-width: 1023px)")
+        var macthFunctionMobile = window.matchMedia("(max-width: 739px)")
+        function showContainerAsk() {
+            askQuestion.classList.add("open")
+        }
+        function hideContainerAsk() {
+            askQuestion.classList.remove("open")
+        }
+        function hideContainerQuestion() {
+            formQuestion.classList.remove("open")
+        }
+        function addAnimation() {
+            heading.style.animation = "fadeIn .8s ease"
+            answer.style.animation = "fadeIn .8s ease"
+        }
+        function switchYesNo() {
+            btnYes.style.left = "25%"
+        }
+        function changePosition() {
+            var temX = Math.floor(Math.random() * 50) + 20
+            var temY = Math.floor(Math.random() * 80) + 10
+            btnNo.style.left = `${temX}%`
+            btnNo.style.top = `${height * temY / 100}px`
+        }
+        function changePositionMobile() {
+            var temX = Math.floor(Math.random() * 60) + -30
+            var temY = Math.floor(Math.random() * 80) + 10
+            btnNo.style.left = `${temX}%`
+            btnNo.style.top = `${height * temY / 100}px`
+        }
+        btnQuestion.addEventListener("click", hideContainerQuestion)
+        btnQuestion.addEventListener("click", addAnimation)
+
+
+        askNo.addEventListener("mouseover", function () {
+            askNo.textContent = "Ai cho hoi mà hoi -.-"
+        })
+        askNo.addEventListener("mouseout", function () {
+            askNo.textContent = "Hoiiii!!"
+        })
+        askQuestion.addEventListener("click", hideContainerAsk)
+        askContainer.addEventListener("click", function (event) {
+            event.stopPropagation()
+        })
+        if (macthFunctionTabletMobile.matches) {
+            btnYes.addEventListener("click", showContainerAsk)
+            if (macthFunctionMobile.matches) {
+                btnNo.addEventListener("mouseover", changePositionMobile)
+            }
+            else {
+                btnNo.addEventListener("mouseover", changePosition)
+            }
+        }
+        else {
+            btnYes.addEventListener("click", showContainerAsk)
+            btnNo.addEventListener("mouseover", function () {
+                changePosition()
+                switchYesNo()
+            })
+        }   
+    </script>
+</body>
+
+</html>
